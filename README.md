@@ -16,4 +16,3 @@ This is will be our primary implementation. Just adding and removing text using 
 ## References
 
 <https://www.cs.cmu.edu/~fp/courses/15122-f12/assignments/15-122-prog4-2.pdf>
-<https://www.cs.cmu.edu/~fp/courses/15122-f12/assignments/15-122-prog4-2.pdf>
