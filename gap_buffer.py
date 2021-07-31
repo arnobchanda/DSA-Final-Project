@@ -61,6 +61,18 @@ class gapbuffer:
         while self.move_gap_left_by_one() != 1:
             pass
     
+    def check_gap_is_right_extreme(self):
+        if self.content[len(self.content) - 1] == None:
+            return True
+        else:
+            return False
+        
+    def check_gap_is_left_extreme(self):
+        if self.content[0] == None:
+            return True
+        else:
+            return False
+    
     def insert_character(self, char):
         if self.current_buffer_size < self.limit:
             if self.gap_size > 1:
@@ -100,6 +112,7 @@ class gapbuffer:
                 self.content.pop(item_number_to_pop)
                 
                 self.gap_start = self.gap_start - 1
+                self.gap_end = self.gap_end - 1
                 self.current_buffer_size = self.current_buffer_size - 1
             else:
                 if self.gap_size < 11:                    
@@ -124,17 +137,21 @@ class gapbuffer:
 # gb.show_buffer()
 # gb.show_buffer_information()
 
-# gb.show_text_in_buffer()
+# # gb.show_text_in_buffer()
 # print("\n")
 
 # gb.move_gap_to_right_extreme()
 # gb.show_buffer()
-# gb.show_buffer_information()
+# print(gb.check_gap_is_left_extreme())
+# print(gb.check_gap_is_right_extreme())
+# # gb.show_buffer_information()
 
 # print("\n")
 
 # gb.move_gap_to_left_extreme()
 # gb.show_buffer()
+# print(gb.check_gap_is_left_extreme())
+# print(gb.check_gap_is_right_extreme())
 # gb.show_buffer_information()
 
 # for i in range(6):

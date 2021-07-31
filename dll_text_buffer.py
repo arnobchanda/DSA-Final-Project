@@ -51,12 +51,13 @@ class buffer:
     
     def put_string_in_buffer(self, text_string):
         list_of_words=text_string.split(" ")
-        self.setup_buffer()
         
         self.point_node.item = gapbuffer(list_of_words[0])
+        self.point_node.item.move_gap_to_right_extreme()
         
         for word in range(1, len(list_of_words)):
             self.add_node_before_end_node(list_of_words[word])
+            self.point_node.item.move_gap_to_right_extreme()
     
     def move_point_node_left(self):
         if self.point_node_location > 1:    
@@ -99,30 +100,30 @@ class buffer:
         print("No of Nodes: {}".format(self.no_of_nodes))
         print("Point node location: {}".format(self.point_node_location))
     
-text_buffer = buffer()
-# text_buffer.setup_buffer()
+# text_buffer = buffer()
+# # text_buffer.setup_buffer()
+# # text_buffer.show_buffer() 
+# text_buffer.put_string_in_buffer("This is a string")
 # text_buffer.show_buffer() 
-text_buffer.put_string_in_buffer("This is a string")
-text_buffer.show_buffer() 
-text_buffer.show_buffer_info()
+# text_buffer.show_buffer_info()
 
-print("\n")
+# print("\n")
 
-text_buffer.move_point_node_left()
-text_buffer.show_buffer()
-text_buffer.show_buffer_info()
+# text_buffer.move_point_node_left()
+# text_buffer.show_buffer()
+# text_buffer.show_buffer_info()
 
-print("\n")
+# print("\n")
 
-text_buffer.move_point_node_right()
-text_buffer.show_buffer()
-text_buffer.show_buffer_info()
+# text_buffer.move_point_node_right()
+# text_buffer.show_buffer()
+# text_buffer.show_buffer_info()
 
-print("\n")
+# print("\n")
 
-text_buffer.move_point_node_right()
-text_buffer.show_buffer()
-text_buffer.show_buffer_info()
+# text_buffer.move_point_node_right()
+# text_buffer.show_buffer()
+# text_buffer.show_buffer_info()
 
-print("\n")
-text_buffer.print_buffer_as_string()
+# print("\n")
+# text_buffer.print_buffer_as_string()
