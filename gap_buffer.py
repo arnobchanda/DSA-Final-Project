@@ -32,8 +32,10 @@ class gapbuffer:
             
             self.gap_start = item_number_to_pop
             self.gap_end = item_number_to_place
+            return 0
         else:
-            print("Gap is at the leftmost position")
+            # print("Gap is at the leftmost position")
+            return 1
 
     def move_gap_right_by_one(self):
         if self.gap_end != self.current_buffer_size:
@@ -46,8 +48,18 @@ class gapbuffer:
             
             self.gap_start = item_number_to_place + 1
             self.gap_end = item_number_to_pop + 1
+            return 0
         else:
-            print("Gap is at the righmost position")
+            # print("Gap is at the righmost position")
+            return 1
+    
+    def move_gap_to_right_extreme(self):
+        while self.move_gap_right_by_one() != 1:
+            pass
+    
+    def move_gap_to_left_extreme(self):
+        while self.move_gap_left_by_one() != 1:
+            pass
     
     def insert_character(self, char):
         if self.current_buffer_size < self.limit:
@@ -80,7 +92,6 @@ class gapbuffer:
                         print("Only one char at a time")
                 else:
                     print("No gap space availaibe")
-
     
     def delete_character(self):
         if self.gap_start != 0:
@@ -101,52 +112,58 @@ class gapbuffer:
         else:
             print("No character before.")
             
-class dll_node:
-    def __init__(self,data):
-            self.item = data
-            self.prev = None
-            self.next = None
-            
-class buffer:
-    def __init__(self):
-        self.start_node = None
-        self.end_node = None
-        self.point_node = None
-        
-        
-        
-gb = gapbuffer("Hello")
-gb.show_buffer()
+    def show_text_in_buffer(self):
+        text = self.content
+        del text[self.gap_start:self.gap_end]
+        s = ""
+        s = s.join(text)
+        # print(s)
+        return s
 
-print("\n")
+# gb = gapbuffer("Hello")
+# gb.show_buffer()
+# gb.show_buffer_information()
 
-for i in range(6):
-    gb.move_gap_right_by_one()
-    gb.show_buffer()
+# gb.show_text_in_buffer()
+# print("\n")
 
-gb.show_buffer_information()
+# gb.move_gap_to_right_extreme()
+# gb.show_buffer()
+# gb.show_buffer_information()
 
-print("\n")
+# print("\n")
 
-for i in range(6):
-    gb.move_gap_left_by_one()
-    gb.show_buffer()
+# gb.move_gap_to_left_extreme()
+# gb.show_buffer()
+# gb.show_buffer_information()
 
-gb.show_buffer_information()
+# for i in range(6):
+#     gb.move_gap_right_by_one()
+#     gb.show_buffer()
 
-print("\n")
+# gb.show_buffer_information()
 
-new_addition = "World is mine"
-for i in range(len(new_addition)):
-    gb.insert_character(new_addition[i])
-    gb.show_buffer()
+# print("\n")
 
-gb.show_buffer_information()
+# for i in range(6):
+#     gb.move_gap_left_by_one()
+#     gb.show_buffer()
 
-print("\n")
+# gb.show_buffer_information()
 
-for i in range(6):
-    gb.delete_character()
-    gb.show_buffer()
+# print("\n")
 
-gb.show_buffer_information()
+# new_addition = "World is mine"
+# for i in range(len(new_addition)):
+#     gb.insert_character(new_addition[i])
+#     gb.show_buffer()
+
+# gb.show_buffer_information()
+
+# print("\n")
+
+# for i in range(6):
+#     gb.delete_character()
+#     gb.show_buffer()
+
+# gb.show_buffer_information()
