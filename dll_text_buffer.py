@@ -15,9 +15,9 @@ class buffer:
         self.point_node_location = 0
         
     def setup_buffer(self):
-        start_node = dll_node("start_node")
+        start_node = dll_node("startnode")
         point_node = dll_node("init")
-        end_node = dll_node("end_node")
+        end_node = dll_node("endnode")
         
         start_node.prev = None
         start_node.next = point_node
